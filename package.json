@@ -34,7 +34,7 @@
     "postversion": "git push && git push --tags",
     "prepare": "npm run build",
     "serve": "nodemon ./src/index.ts",
-    "test": "mocha",
+    "test": "npm run build && mocha",
     "upgrade": "npx npm-check -u",
     "version": "npm run build && npm run changelog:update"
   },
