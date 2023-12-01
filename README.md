@@ -1,7 +1,5 @@
 # Advent of Code 2023
 
-My first attempt at an [Advent of Code](https://adventofcode.com).
-
 ## Contents
 
 * [Day 1: Trebuchet?!](#day-1)
