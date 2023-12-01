@@ -1,11 +1,19 @@
 # Advent of Code 2023
 
+This repo contains a quick attempt at each of [this year's daily Advent of Code](https://adventofcode.com/2023) puzzles. Each answer is checked with a test, found [here](https://github.com/vaughan-rich/advent-of-code-23/blob/main/test/index.ts).
+
 ## Contents
 
 * [Day 1: Trebuchet?!](#day-1)
+  * [Part One](#part-one)
+  * [Part Two](#part-two)
+* [Day 2](#day-2)
+
 
 ## Day 1
 ### Trebuchet?!
+
+#### Part One
 
 Something is wrong with global snow production, and you've been selected to take a look. The Elves have even given you a map; on it, they've used stars to mark the top fifty locations that are likely to be having problems.
 
@@ -32,8 +40,28 @@ In this example, the calibration values of these four lines are 12, 38, 15, and 
 
 Consider your entire calibration document. What is the sum of all of the calibration values?
 
+#### Part Two
+
+Your calculation isn't quite right. It looks like some of the digits are actually spelled out with letters: one, two, three, four, five, six, seven, eight, and nine also count as valid "digits".
+
+Equipped with this new information, you now need to find the real first and last digit on each line. For example:
+
+```
+two1nine
+eightwothree
+abcone2threexyz
+xtwone3four
+4nineeightseven2
+zoneight234
+7pqrstsixteen
+```
+
+In this example, the calibration values are 29, 83, 13, 24, 42, 14, and 76. Adding these together produces 281.
+
+What is the sum of all of the calibration values?
+
 ## Day 2
 ### Coming soon...
 
 ## Repository Template
-This project is based around [this template](https://github.com/chriswells0/node-typescript-template).
+This project is based off of [this template](https://github.com/chriswells0/node-typescript-template).

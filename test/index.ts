@@ -1,17 +1,18 @@
 'use strict';
 
 import { expect } from 'chai';
-import { Example } from '../dist/index';
+import { Calibrator } from '../dist/index';
 
-describe('Example class', () => {
-	it('should create an instance using its constructor', () => {
-		const example: Example = new Example();
-		expect(example, 'example should exist').to.exist;
-	});
-	it('should return whatever is passed to exampleMethod()', () => {
-		const example: Example = new Example();
-		const param = 'This is my param.';
-		const returnValue: string = example.exampleMethod(param);
-		expect(returnValue).to.equal(param, 'returns the value passed as a parameter');
+describe('Day 1', () => {
+	describe('Part One', () => { 
+		it('should calculate the sum of the calibration values', () => {
+			// the answer is 54597
+			const calibrator: Calibrator = new Calibrator();
+			const input = 'puzzle-input';
+			const returnValue: number = calibrator.calibrate(input);
+			expect(returnValue).to.equal(54597, 'returns the sum of all calibration values');
+		});
 	});
 });
+
+
