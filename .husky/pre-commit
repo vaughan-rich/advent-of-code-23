@@ -2,4 +2,4 @@
 . "$(dirname "$0")/_/husky.sh"
 
 npm test
-npm audit --audit-level=critical
+npm audit --audit-level=moderate
