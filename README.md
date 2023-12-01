@@ -1,8 +1,6 @@
 # Advent of Code 2023
 
-# Node.js TypeScript Template
-
-My attempt at [Advent of Code 2023](https://adventofcode.com).
+My first attempt at an [Advent of Code](https://adventofcode.com).
 
 ## Contents
 
@@ -25,10 +23,12 @@ The newly-improved calibration document consists of lines of text; each line ori
 
 For example:
 
-```1abc2
+```
+1abc2
 pqr3stu8vwx
 a1b2c3d4e5f
-treb7uchet```
+treb7uchet
+```
 
 In this example, the calibration values of these four lines are 12, 38, 15, and 77. Adding these together produces 142.
 
