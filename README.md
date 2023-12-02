@@ -5,11 +5,7 @@ This repo contains an attempt at each of [this year's daily Advent of Code](http
 ## Contents
 
 * [Day 1: Trebuchet?!](#day-1)
-  * [Part One](#part-one)
-  * [Part Two](#part-two)
 * [Day 2: Cube Conundrum](#day-2)
-  * [Part One](#part-one)
-  * [Part Two](#part-two)
 * [Day 3](#day-3)
 
 
@@ -96,6 +92,9 @@ Determine which games would have been possible if the bag had been loaded with o
 #### Part Two
 
 Coming soon...
+
+## Day 3
+### Coming soon...
 
 ## Repository Template
 This project is based off of [this template](https://github.com/chriswells0/node-typescript-template).
