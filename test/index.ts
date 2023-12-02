@@ -1,7 +1,7 @@
 'use strict';
 
 import { expect } from 'chai';
-import { Calibrator } from '../dist/index';
+import { Calibrator, CubesCalculator } from '../dist/index';
 
 describe('Day 1', () => {
 	describe('Part One', () => { 
@@ -37,6 +37,18 @@ describe('Day 1', () => {
 			const input = 'puzzle-input';
 			const returnValue: number = calibrator.calibrateBetter(input);
 			expect(returnValue).to.equal(54504, 'returns the sum of all calibration values');
+		});
+	});
+});
+
+describe('Day 2', () => {
+	describe('Part One', () => { 
+		it('should calculate the sum of the possible game ids, using example input', () => {
+			// the answer is 8, as per the task in the README
+			const cubeCalculator: CubesCalculator = new CubesCalculator();
+			const input = 'part-1-example';
+			const returnValue: number = cubeCalculator.determinePossibilitySum(input);
+			expect(returnValue).to.equal(8, 'returns the sum of all possible game ids');
 		});
 	});
 });

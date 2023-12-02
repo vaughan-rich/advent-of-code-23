@@ -1,7 +1,7 @@
 {
   "name": "advent-of-code-23",
   "version": "1.0.0",
-  "description": "My attempt at Advent of Code 2023 - https://adventofcode.com.",
+  "description": "Advent of Code 2023 Solutions - https://adventofcode.com.",
   "keywords": [
     "advent",
     "code",
@@ -11,7 +11,6 @@
   "author": {
     "name": "Rich Vaughan"
   },
-  "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "https://github.com/vaughan-rich/advent-of-code-23.git"

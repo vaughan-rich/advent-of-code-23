@@ -78,3 +78,29 @@ export class Calibrator {
 		return calibrationSum;
 	}
 }
+
+export class CubesCalculator {
+
+	private _logger: Logger;
+
+	constructor() {
+		this._logger = Logger.getLogger({ name: this.constructor.name });
+	}
+
+	private parseInputFile(input: string): string[] {
+		const filePath = './test/fixtures/day-2/'+input+'.txt';
+		this._logger.info('Reading file: ' + filePath);
+		const inputFile = fs.readFileSync(filePath, 'utf8');
+		return inputFile.split('\n');
+	}
+
+	public determinePossibilitySum(input: string): number {
+		const arrayFromFile = this.parseInputFile(input);
+		const possibilitySum = 5;
+
+		this._logger.info('Array from file: ' + arrayFromFile);
+		this._logger.info('Sum of possibile game ids: ' + possibilitySum);
+
+		return possibilitySum;
+	}
+}
