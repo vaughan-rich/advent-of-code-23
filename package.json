@@ -39,22 +39,24 @@
     "version": "npm run build && npm run changelog:update"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
     "@types/chai": "^4.3.5",
     "@types/mocha": "^10.0.1",
     "@types/node": "^20.4.1",
     "@typescript-eslint/eslint-plugin": "^6.13.1",
-    "@typescript-eslint/parser": "^5.61.0",
+    "@typescript-eslint/parser": "^6.13.1",
     "chai": "^4.3.7",
     "conventional-changelog-cli": "^3.0.0",
     "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.55.0",
     "husky": "^7.0.4",
-    "eslint": "^8.44.0",
     "mocha": "^10.2.0",
     "nodemon": "^3.0.1",
     "nyc": "^15.1.0",
     "source-map-support": "^0.5.21",
     "ts-node": "^10.9.1",
-    "typescript": "^5.1.6"
+    "typescript": "^5.3.2"
   },
   "config": {
     "commitizen": {

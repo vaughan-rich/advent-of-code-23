@@ -13,7 +13,7 @@ export class Calibrator {
 
 	private parseInputFile(input: string): string[] {
 		const filePath = './test/fixtures/day-1/'+input+'.txt';
-		this._logger.debug('Reading file: ' + filePath);
+		this._logger.info('Reading file: ' + filePath);
 		const inputFile = fs.readFileSync(filePath, 'utf8');
 		return inputFile.split('\n');
 	}
@@ -36,27 +36,44 @@ export class Calibrator {
 		return numberArray.reduce((runningTotal, current) => runningTotal + current, 0);
 	}
 
+	private wordsToDigits(array: string[]): string[] {
+		return array.map((string) => {
+			return string.split('')
+				.map((char, index) => {
+					const slicedString = string.slice(index);
+					if (slicedString.startsWith('one')) return '1';
+					if (slicedString.startsWith('two')) return '2';
+					if (slicedString.startsWith('three')) return '3';
+					if (slicedString.startsWith('four')) return '4';
+					if (slicedString.startsWith('five')) return '5';
+					if (slicedString.startsWith('six')) return '6';
+					if (slicedString.startsWith('seven')) return '7';
+					if (slicedString.startsWith('eight')) return '8';
+					if (slicedString.startsWith('nine')) return '9';
+					return char;
+				}).join('');
+		});
+	}
+
 	public calibrate(input: string): number {
 		const arrayFromFile = this.parseInputFile(input);
 		const lettersRemoved = this.removeLetters(arrayFromFile);
 		const calibrationValues: number[] = this.sliceFirstAndLast(lettersRemoved);
 		const calibrationSum = this.sum(calibrationValues);
 
-		this._logger.debug('Sum of Calibration Values: ' + calibrationSum);
+		this._logger.info('Sum of calibration values: ' + calibrationSum);
 
 		return calibrationSum;
 	}
 
 	public calibrateBetter(input: string): number {
 		const arrayFromFile = this.parseInputFile(input);
-		
-		// Here, before removing surplus letters, need to do lookup and replace with numbers
-		
-		const lettersRemoved = this.removeLetters(arrayFromFile);
+		const wordDigitsAdded = this.wordsToDigits(arrayFromFile);
+		const lettersRemoved = this.removeLetters(wordDigitsAdded);
 		const calibrationValues: number[] = this.sliceFirstAndLast(lettersRemoved);
 		const calibrationSum = this.sum(calibrationValues);
 		
-		this._logger.debug('Sum of Calibration Values: ' + calibrationSum);
+		this._logger.info('Sum of better calibration values: ' + calibrationSum);
 
 		return calibrationSum;
 	}
