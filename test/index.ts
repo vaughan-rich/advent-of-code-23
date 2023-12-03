@@ -47,8 +47,26 @@ describe('Day 2', () => {
 			// the answer is 8, as per the task in the README
 			const cubeCalculator: CubesCalculator = new CubesCalculator();
 			const input = 'part-1-example';
-			const returnValue: number = cubeCalculator.determinePossibilitySum(input);
+			const bagContents = {
+				'red': 12,
+				'green': 13,
+				'blue': 14
+			};
+			const returnValue: number = cubeCalculator.getPossibilitySum(input, bagContents);
 			expect(returnValue).to.equal(8, 'returns the sum of all possible game ids');
+		});
+
+		it('should calculate the sum of the possible game ids, using actual input', () => {
+			// my puzzle answer is 2006
+			const cubeCalculator: CubesCalculator = new CubesCalculator();
+			const input = 'puzzle-input';
+			const bagContents = {
+				'red': 12,
+				'green': 13,
+				'blue': 14
+			};
+			const returnValue: number = cubeCalculator.getPossibilitySum(input, bagContents);
+			expect(returnValue).to.equal(2006, 'returns the sum of all possible game ids');
 		});
 	});
 });

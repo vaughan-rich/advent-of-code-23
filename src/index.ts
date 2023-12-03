@@ -11,8 +11,8 @@ export class Calibrator {
 		this._logger = Logger.getLogger({ name: this.constructor.name });
 	}
 
-	private parseInputFile(input: string): string[] {
-		const filePath = './test/fixtures/day-1/'+input+'.txt';
+	private parseInputFile(fileInput: string): string[] {
+		const filePath = './test/fixtures/day-1/'+fileInput+'.txt';
 		this._logger.info('Reading file: ' + filePath);
 		const inputFile = fs.readFileSync(filePath, 'utf8');
 		return inputFile.split('\n');
@@ -79,6 +79,12 @@ export class Calibrator {
 	}
 }
 
+interface Bag {
+	red: number;
+	blue: number;
+	green: number;
+}  
+
 export class CubesCalculator {
 
 	private _logger: Logger;
@@ -87,20 +93,53 @@ export class CubesCalculator {
 		this._logger = Logger.getLogger({ name: this.constructor.name });
 	}
 
-	private parseInputFile(input: string): string[] {
+	private parseGameData(input: string): Bag[][] {
 		const filePath = './test/fixtures/day-2/'+input+'.txt';
 		this._logger.info('Reading file: ' + filePath);
-		const inputFile = fs.readFileSync(filePath, 'utf8');
-		return inputFile.split('\n');
+		const inputFile = fs.readFileSync(filePath, 'utf8').split('\n');
+		
+		const strippedStringStructure = inputFile.map((game) => {
+			const splitGame = game.split(';');
+			splitGame[0] = splitGame[0].replace(/Game \d+: /g, '');
+			return splitGame;
+		});
+
+		return strippedStringStructure.map((game) => {
+			return game.map((set) => {
+				const redMatch = set.match(/(\d+) red/g);
+				const greenMatch = set.match(/(\d+) green/g);
+				const blueMatch = set.match(/(\d+) blue/g);	
+				return {
+					'red': redMatch ? Number(redMatch[0].replace('red','')) : 0,
+					'green': greenMatch ? Number(greenMatch[0].replace('green','')) : 0,
+					'blue': blueMatch ? Number(blueMatch[0].replace('blue','')) : 0
+				}
+			})
+		})
 	}
 
-	public determinePossibilitySum(input: string): number {
-		const arrayFromFile = this.parseInputFile(input);
-		const possibilitySum = 5;
+	private getGamePossibilities(gameData: Bag[][], bagContents: Bag): boolean[] {
+		return gameData.map((game) => {
+			const setPossibilities = game.map((set) => {
+				if (set.red > bagContents.red || set.blue > bagContents.blue || set.green > bagContents.green) return false
+				else return true
+			})
+			return setPossibilities.every(Boolean);
+		})
+	}
 
-		this._logger.info('Array from file: ' + arrayFromFile);
-		this._logger.info('Sum of possibile game ids: ' + possibilitySum);
+	private sumPossibleGameIds(gamePossibilities: boolean[]): number {
+		let sum = 0;
+		gamePossibilities.forEach((game, index) => {
+			if (game) sum += index + 1
+		});
+		this._logger.info('Sum of possibile game ids: ' + sum);
+		return sum
+	}
 
-		return possibilitySum;
+	public getPossibilitySum(fileInput: string, bagContents: Bag): number {
+		const gameData = this.parseGameData(fileInput);
+		const gamePossibilities = this.getGamePossibilities(gameData, bagContents);
+		return this.sumPossibleGameIds(gamePossibilities);
 	}
 }
