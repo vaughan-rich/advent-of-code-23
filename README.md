@@ -1,4 +1,4 @@
-# Advent of Code 2023
+# Advent of Code 2023 🎄
 
 This repo contains an attempt at each of [this year's daily Advent of Code](https://adventofcode.com/2023) puzzles. Each answer is checked with a test, found [here](https://github.com/vaughan-rich/advent-of-code-23/blob/main/test/index.ts).
 
