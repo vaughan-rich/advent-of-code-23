@@ -172,3 +172,31 @@ export class CubesCalculator {
 		return powerSum;
 	}
 }
+
+export class GondolaSchematic {
+
+	private _logger: Logger;
+
+	constructor() {
+		this._logger = Logger.getLogger({ name: this.constructor.name });
+	}
+
+	private parseInputFile(fileInput: string): string[] {
+		const filePath = './test/fixtures/day-3/'+fileInput+'.txt';
+		this._logger.info('Reading file: ' + filePath);
+		const inputFile = fs.readFileSync(filePath, 'utf8');
+		return inputFile.split('\n');
+	}
+
+	// private sum(numberArray: number[]): number {
+	// 	return numberArray.reduce((runningTotal, current) => runningTotal + current, 0);
+	// }
+
+	public getPartNumbersSum(input: string): number {
+		const arrayFromFile = this.parseInputFile(input);
+
+		this._logger.info('Array from file: ' + arrayFromFile);
+
+		return 5;
+	}
+}

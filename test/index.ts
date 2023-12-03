@@ -1,7 +1,7 @@
 'use strict';
 
 import { expect } from 'chai';
-import { Calibrator, CubesCalculator } from '../dist/index';
+import { Calibrator, CubesCalculator, GondolaSchematic } from '../dist/index';
 
 describe('Day 1', () => {
 	describe('Part One', () => { 
@@ -76,7 +76,7 @@ describe('Day 2', () => {
 			const cubeCalculator: CubesCalculator = new CubesCalculator();
 			const input = 'part-1-example';
 			const returnValue: number = cubeCalculator.getPowerSum(input);
-			expect(returnValue).to.equal(2286, 'returns the sum of all possible game ids');
+			expect(returnValue).to.equal(2286, 'returns the sum of the powers of the minimum sets');
 		});
 
 		it('should calculate the sum of the powers of the minimum sets, using actual input', () => {
@@ -84,7 +84,19 @@ describe('Day 2', () => {
 			const cubeCalculator: CubesCalculator = new CubesCalculator();
 			const input = 'puzzle-input';
 			const returnValue: number = cubeCalculator.getPowerSum(input);
-			expect(returnValue).to.equal(84911, 'returns the sum of all possible game ids');
+			expect(returnValue).to.equal(84911, 'returns the sum of the powers of the minimum sets');
+		});
+	});
+});
+
+describe('Day 3', () => {
+	describe('Part One', () => { 
+		it('should calculate the sum of the part numbers, using example input', () => {
+			// the answer is 4361, as per the task in the README
+			const gondolaSchematic: GondolaSchematic = new GondolaSchematic();
+			const input = 'part-1-example';
+			const returnValue: number = gondolaSchematic.getPartNumbersSum(input);
+			expect(returnValue).to.equal(4361, 'returns the sum of all part numbers');
 		});
 	});
 });
