@@ -69,6 +69,24 @@ describe('Day 2', () => {
 			expect(returnValue).to.equal(2006, 'returns the sum of all possible game ids');
 		});
 	});
+
+	describe('Part Two', () => { 
+		it('should calculate the sum of the powers of the minimum sets, using example input', () => {
+			// the answer is 2286, as per the task in the README
+			const cubeCalculator: CubesCalculator = new CubesCalculator();
+			const input = 'part-1-example';
+			const returnValue: number = cubeCalculator.getPowerSum(input);
+			expect(returnValue).to.equal(2286, 'returns the sum of all possible game ids');
+		});
+
+		it('should calculate the sum of the powers of the minimum sets, using actual input', () => {
+			// my puzzle answer is 84911
+			const cubeCalculator: CubesCalculator = new CubesCalculator();
+			const input = 'puzzle-input';
+			const returnValue: number = cubeCalculator.getPowerSum(input);
+			expect(returnValue).to.equal(84911, 'returns the sum of all possible game ids');
+		});
+	});
 });
 
 

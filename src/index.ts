@@ -133,13 +133,42 @@ export class CubesCalculator {
 		gamePossibilities.forEach((game, index) => {
 			if (game) sum += index + 1
 		});
-		this._logger.info('Sum of possibile game ids: ' + sum);
-		return sum
+		this._logger.info('Sum of possible game ids: ' + sum);
+		return sum;
+	}
+
+	private getGamePowers(gameData: Bag[][]): number[] {
+		return gameData.map((game) => {
+			const minimumSet = {
+				'red': 0,
+				'green': 0,
+				'blue': 0,
+			}
+			game.map((set) => {
+				if (set.red > minimumSet.red) minimumSet.red = set.red;
+				if (set.green > minimumSet.green) minimumSet.green = set.green;
+				if (set.blue > minimumSet.blue) minimumSet.blue = set.blue;
+				return minimumSet;
+			})
+			return minimumSet.red * minimumSet.green * minimumSet.blue;
+		})
+	}
+
+	private sum(numberArray: number[]): number {
+		return numberArray.reduce((runningTotal, current) => runningTotal + current, 0);
 	}
 
 	public getPossibilitySum(fileInput: string, bagContents: Bag): number {
 		const gameData = this.parseGameData(fileInput);
 		const gamePossibilities = this.getGamePossibilities(gameData, bagContents);
 		return this.sumPossibleGameIds(gamePossibilities);
+	}
+	
+	public getPowerSum(fileInput: string): number {
+		const gameData = this.parseGameData(fileInput);
+		const gamePowers = this.getGamePowers(gameData);
+		const powerSum = this.sum(gamePowers);
+		this._logger.info('Sum of powers: ' + powerSum);
+		return powerSum;
 	}
 }
