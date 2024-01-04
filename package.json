@@ -38,7 +38,7 @@
     "version": "npm run build && npm run changelog:update"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.4.3",
+    "@commitlint/cli": "^18.4.4",
     "@commitlint/config-conventional": "^18.4.3",
     "@types/chai": "^4.3.5",
     "@types/mocha": "^10.0.1",
